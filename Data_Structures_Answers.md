@@ -29,9 +29,47 @@ Add your answers to the questions below.
 
 
 5. What is the runtime complexity of the provided code in `names.py`?
+* `O(n^2)` - the second for loop is nested forcing the iterations to be 10,000 * 10,000 when comparing values
 
 6. What is the space complexity of the provided code in `names.py`?
+* 2 files -> O(2n)
+* 2 lists to hold file lines -> O(2n)
+* 1 list to hold duplicates -> O(n)
+* total = O(5n) -> `O(n)`
 
 7. What is the runtime complexity of your optimized code in `names.py`?
+* First Optomized Solution
+  * each file open is a single O(n) -> O(2n)
+  * 1 list to hold the name values from file2.read().readlines() -> O(n)
+  * loop through file1 n times -> O(n)
+    * conditionally loop through list holding file2 names, exit loop early if condition met -> O(log n)
+  * Because the conditional loop is nested in the n loop...
+  * Total = O(n) * O(log n) -> `O(n log n)`
+* MVP
+  * each file open is a single O(n) -> O(2n)
+  * Create a dictionary by iterating through both files (at the same time) -> O(2n)
+  * Iterating through the values in the dictionary to check for duplicates(in the key) before adding the duplicates to the list -> O(n)
+  * Checking if a key exists in a dictionary -> O(1)
+  * Appending the found duplicate to the duplicate list -> O(1)
+  * Total = O(5n) -> `O(n)`
+* Stretch
+  * each file open is a single O(n) -> O(2n)
+  * by using file.read().readlines() on both files (2n)...
+  * while parsing through the lines removing `\n` during the `set` module sub-method to compare values for instantion of duplciates -> O(n)
+  * Total = O(5n) -> `O(n)`
 
 8. What is the space complexity of your optimized code in `names.py`?
+* First Optomized Solution
+  * each file open is a single O(n) -> O(2n)
+  * 1 list to hold the name values to compare against -> O(n)
+  * 1 list to hold duplicate values -> O(n)
+  * Total = O(4n) -> `O(n)`
+* MVP
+  * 2 files -> O(2n)
+  * 1 dictionary to hold lines as key/value pair -> O(2n)
+  * 1 list to hold duplicates -> O(n)
+  * Total = O(5n) -> `O(n)`
+* Stretch
+  * 2 files -> O(2n)
+  * 1 set to hold duplicates -> O(n)
+  * Total = O(3n) -> `O(n)`
