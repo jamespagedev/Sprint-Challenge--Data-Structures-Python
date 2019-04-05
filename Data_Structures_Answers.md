@@ -24,9 +24,7 @@ Add your answers to the questions below.
   * this makes the runtime O(2n) which is the same as O(n)
 
 4. What is the space complexity of your ring buffer's `get` method?
-* `O(1)` - because we are returning a single line with 0 instantiation, and splicing, concatinating with a list comprehension...
-  * without assigning any values or increasing the amount of values, the space complexity is constant O(1)
-
+* `O(n)` - because we are copying array using a list comprehension (space of n) before returning it
 
 5. What is the runtime complexity of the provided code in `names.py`?
 * `O(n^2)` - the second for loop is nested forcing the iterations to be 10,000 * 10,000 when comparing values
